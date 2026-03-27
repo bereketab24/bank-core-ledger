@@ -91,7 +91,7 @@ spec:
                             git clone https://${GIT_USER}:${GIT_PAT}@${INFRA_REPO} infra-repo
 
                             # 3. Navigate straight to the DEV overlay
-                            cd infra-repo/apps/bank-backend-service/overlays/dev
+                            cd infra-repo/apps/bank-core-engine/overlays/dev
 
                             # 4. Use Kustomize to elegantly update the image tag to the new Git SHA
                             kustomize edit set image ${DOCKER_IMAGE}=${DOCKER_IMAGE}:${GIT_SHA}
