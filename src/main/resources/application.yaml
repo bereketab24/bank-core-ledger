@@ -3,4 +3,4 @@ spring:
     name: core
 
   liquibase:
-    enabled: false
+    change-log: classpath:/db/changelog/db.changelog-master.yaml

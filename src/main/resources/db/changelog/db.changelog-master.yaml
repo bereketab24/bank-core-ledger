@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/migrations/v1_init_ledger.yaml
+      relativeToChangelogFile: false

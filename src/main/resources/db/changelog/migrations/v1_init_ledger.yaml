@@ -1,0 +1,101 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-accounts-table
+      author: bank-core-team
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DECIMAL(19, 4)
+                  defaultValueNumeric: "0.0000"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: VARCHAR(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: BIGINT
+                  defaultValueNumeric: "0"
+                  constraints:
+                    nullable: false
+        - sql:
+            sql: ALTER TABLE accounts ADD CONSTRAINT check_positive_balance CHECK (balance >= 0);
+
+  - changeSet:
+      id: 2-create-transactions-table
+      author: bank-core-team
+      changes:
+        - createTable:
+            tableName: transactions
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP WITH TIME ZONE
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 3-create-postings-table
+      author: bank-core-team
+      changes:
+        - createTable:
+            tableName: postings
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: transaction_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_postings_transaction
+                    references: transactions(id)
+              - column:
+                  name: account_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_postings_account
+                    references: accounts(id)
+              - column:
+                  name: amount
+                  type: DECIMAL(19, 4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: direction
+                  type: VARCHAR(10)
+                  constraints:
+                    nullable: false
