@@ -7,8 +7,8 @@ public final class TransferDto {
     private TransferDto (){}
 
     public record TransferRequest(
-            UUID senderAccountId,
-            UUID receiverAccountId,
+            String debtorIban,
+            String creditorIban,
             BigDecimal amount,
             String currency
     ){}

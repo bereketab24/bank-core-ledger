@@ -1,4 +1,4 @@
-package com.bereketab.bank.core.ledger.api;
+package com.bereketab.bank.core.ledger.api.spec;
 
 import com.bereketab.bank.core.ledger.api.dto.TransferDto;
 import io.swagger.v3.oas.annotations.Operation;
