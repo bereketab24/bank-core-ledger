@@ -1,6 +1,6 @@
 package com.bereketab.bank.core.ledger.web;
 
-import com.bereketab.bank.core.ledger.api.AccountApi;
+import com.bereketab.bank.core.ledger.api.spec.AccountApi;
 import com.bereketab.bank.core.ledger.api.dto.AccountDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

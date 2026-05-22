@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4-rename-postings-to-journal-entries
+      author: bank-core-team
+      changes:
+        - renameTable:
+            oldTableName: postings
+            newTableName: journal_entries
+        - sql:
+            sql: ALTER TABLE journal_entries RENAME CONSTRAINT fk_postings_transaction TO fk_journal_entries_transaction;
+        - sql:
+            sql: ALTER TABLE journal_entries RENAME CONSTRAINT fk_postings_account TO fk_journal_entries_account;

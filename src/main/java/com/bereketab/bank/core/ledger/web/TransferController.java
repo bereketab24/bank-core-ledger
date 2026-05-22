@@ -1,6 +1,6 @@
 package com.bereketab.bank.core.ledger.web;
 
-import com.bereketab.bank.core.ledger.api.TransferApi;
+import com.bereketab.bank.core.ledger.api.spec.TransferApi;
 import com.bereketab.bank.core.ledger.api.dto.TransferDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;

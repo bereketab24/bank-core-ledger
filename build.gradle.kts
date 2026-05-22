@@ -26,7 +26,7 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.modulith:spring-modulith-bom:1.1.3")
+        mavenBom("org.springframework.modulith:spring-modulith-bom:2.0.6")
     }
 }
 
@@ -37,9 +37,14 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-amqp")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-liquibase")
+    implementation("org.springframework.modulith:spring-modulith-events-jpa")
+    implementation("org.springframework.modulith:spring-modulith-events-jackson")
 //    implementation("org.springframework.boot:spring-boot-starter-security")
 //    implementation("org.springframework.boot:spring-boot-starter-security-oauth2-authorization-server")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+    implementation("org.iban4j:iban4j:3.2.13-RELEASE")
+    implementation("org.mapstruct:mapstruct:1.5.5.Final")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
